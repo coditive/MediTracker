@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/fragmentDashboard">
+
+    <fragment
+        android:id="@+id/fragmentDashboard"
+        android:name="com.syrous.meditracker.view.dashboard.FragmentDashboard"
+        android:label="FragmentDashboard"
+        tools:layout="@layout/fragment_dashboard">
+        <action
+            android:id="@+id/action_fragmentDashboard_to_fragmentAddMedicine"
+            app:destination="@id/fragmentAddMedicine" />
+        <action
+            android:id="@+id/action_fragmentDashboard_to_fragmentDetailMedicine"
+            app:destination="@id/fragmentDetailMedicine">
+            <argument
+                android:name="medicineId"
+                app:argType="long"/>
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragmentAddMedicine"
+        android:name="com.syrous.meditracker.view.addMedicine.FragmentAddMedicine"
+        android:label="FragmentAddMedicine"
+        tools:layout="@layout/fragment_add_medicine"/>
+
+    <fragment
+        android:id="@+id/fragmentDetailMedicine"
+        android:name="com.syrous.meditracker.view.detailMedicine.FragmentDetailMedicine"
+        android:label="FragmentDetailMedicine"
+        tools:layout="@layout/fragment_medicine_details">
+        <argument
+            android:name="medicineId"
+            app:argType="long"/>
+    </fragment>
+</navigation>
